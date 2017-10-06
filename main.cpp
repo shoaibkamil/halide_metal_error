@@ -9,6 +9,9 @@ halide_buffer_t *createBufInterleaved(uint8_t* data, int rows, int cols) {
   halide_buffer_t *ret = (halide_buffer_t*)malloc(sizeof(halide_buffer_t));
   halide_dimension_t *dims = (halide_dimension_t*)malloc(3*sizeof(halide_dimension_t));
 
+  ret->device = 0;
+  ret->device_interface = 0;
+  ret->flags = 0;
   ret->host = data;
   ret->set_host_dirty(true);
   ret->type = halide_type_of<uint8_t>();
@@ -35,6 +38,9 @@ halide_buffer_t *createBuf(uint8_t* data, int rows, int cols) {
   halide_buffer_t *ret = (halide_buffer_t*)malloc(sizeof(halide_buffer_t));
   halide_dimension_t *dims = (halide_dimension_t*)malloc(2*sizeof(halide_dimension_t));
 
+  ret->device = 0;
+  ret->device_interface = 0;
+  ret->flags = 0;
   ret->host = data;
   ret->set_host_dirty(true);
   ret->type = halide_type_of<uint8_t>();
